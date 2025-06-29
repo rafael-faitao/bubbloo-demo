@@ -1,5 +1,6 @@
 import React from 'react';
 import { AuthService } from '../../services/authService';
+import './AuthPage.scss';
 
 export default function LoginForm() { 
     const [email, setEmail] = React.useState('');
@@ -24,9 +25,9 @@ export default function LoginForm() {
     }
 
     return (
-        <form onSubmit={ onSubmit }>
-            <div>
-                <label htmlFor="email">Email:</label>
+        <form className="default-form" onSubmit={ onSubmit }>
+            <div className='form-group'>
+                <label htmlFor="email">Email</label>
                 <input
                     type="email"
                     id="email"
@@ -35,8 +36,8 @@ export default function LoginForm() {
                     required
                 />
             </div>
-            <div>
-                <label htmlFor="password">Password:</label>
+            <div className='form-group'>
+                <label htmlFor="password">Password</label>
                 <input
                     type="password"
                     id="password"
@@ -46,7 +47,7 @@ export default function LoginForm() {
                 />
             </div>
             {error && <p className="error">{error}</p>}
-            <button type="submit">Entrar</button>
+            <button className='btn w-100' type="submit">Entrar</button>
         </form>
     )
 }

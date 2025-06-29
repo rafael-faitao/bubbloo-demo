@@ -1,6 +1,8 @@
 :root {
     --main-color: #56B3F8;
+    --form-gray:#707070;
     --text-gray: #AAAAAA;
+    --light-blue:#DCEFFD;
 }
 
 body, html {
@@ -28,4 +30,38 @@ html > * {
 }
 .hv-light:hover {
     filter:brightness(1.1);
+}
+
+.default-form {
+    background:white;
+    border:3px solid var(--light-blue);
+    border-radius:15px;
+    padding:1rem;
+}
+
+.default-form .form-group {
+    margin-bottom:1rem;
+    display:flex;
+    flex-direction:column;
+}
+
+.default-form .form-group label {
+    font-size:1rem;
+    font-weight:bold;
+    color:var(--form-gray);
+}
+
+.default-form .form-group input {
+    border-radius:10px;
+    padding:0.5rem 1rem;
+    border:none;
+    background-color: var(--light-blue);;
+    font-family: 'Nunito' !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color:#333;
+}
+
+.w-100 {
+    width:100%;
 }
