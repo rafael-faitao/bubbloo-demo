@@ -117,7 +117,7 @@ export default function MemoryGame() {
           <div className="memory-game-grid">
             {memoryGameCards.map((card, i) => {
                  
-              return card.flipped ? (<div key={i} className="game-card" style={{backgroundImage:`url('/assets/img/memory-game/${card.id}.png')`}} onClick={() => handleCardClick(i)}></div>) : (<div key={i} className="game-card unflipped" onClick={() => handleCardClick(i)}></div>)
+              return card.flipped ? (<div key={i} className={`game-card ${card.matched ? 'match' : ''}`} style={{backgroundImage:`url('/assets/img/memory-game/${card.id}.png')`}} onClick={() => handleCardClick(i)}></div>) : (<div key={i} className="game-card unflipped" onClick={() => handleCardClick(i)}></div>)
             })}
           </div>
         </div>
