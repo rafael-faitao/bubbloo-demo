@@ -73,8 +73,19 @@ html>* {
 .main-app-wrapper {
     border-radius: 64px;
     background: white;
-    width: 80vw;
+    width: 60vw;
     height: 80vh;
     margin: 0 auto;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05);
+}
+
+.activity-title {
+    width:100%;
+    padding:1rem;
+    color:var(--strong-blue);
+    font-family: 'Nunito';
+    font-size:1.8rem;
+    font-weight: bold;
+    text-align: center;
+    display: block;
 }

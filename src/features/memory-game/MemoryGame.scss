@@ -1,0 +1,29 @@
+.memory-game-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .main-app-wrapper {
+        width: 40vw;
+    }
+
+    .memory-game-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 0.2rem;
+        width: 31rem;
+        height: 31rem;
+        margin: 0 auto;
+
+        .game-card {
+            width: 7rem;
+            cursor: pointer;
+            height: 7rem;
+            border-radius: 16px;
+            background-image: url('../../../public/assets/img/memory-game/card.svg');
+            background-size: cover;
+        }
+    }
+}

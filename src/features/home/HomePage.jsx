@@ -1,6 +1,16 @@
 import "./HomePage.scss";
+import { useNavigate } from 'react-router-dom';
+
 
 export default function HomePage() {
+
+    
+const navigate = useNavigate();
+  const handleActivity = (activity) => {
+
+    navigate(`/${activity}`);
+  }
+
   return (
     <div className="home-page">
       <div className="main-app-wrapper">
@@ -27,13 +37,13 @@ export default function HomePage() {
             </div>
 
             <div className="activity-group">
-                <div className="left-actv">
+                <div className="left-actv" onClick={() => handleActivity('colouring')}>
                     <div className="img-wrapper ">
                         <img src="/assets/img/activity-colouring.png"/>
                     </div>
                     Colorir
                 </div>
-                <div className="right-actv">
+                <div className="right-actv" onClick={() => handleActivity('memory')}>
                     <div className="img-wrapper ">
                         <img src="/assets/img/activity-memory.png"/>
                     </div>
