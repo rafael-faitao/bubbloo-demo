@@ -1,5 +1,7 @@
 import React from 'react';
 import { AuthService } from '../../services/authService';
+import { useNavigate } from 'react-router-dom';
+
 import './AuthPage.scss';
 
 export default function LoginForm() { 
@@ -7,16 +9,19 @@ export default function LoginForm() {
     const [password, setPassword] = React.useState('');
     const [error, setError] = React.useState(null);
 
+    const authService = new AuthService();
+    const navigate = useNavigate();
 
     const onSubmit = async (e) => {
         e.preventDefault();
         setError(null);
 
         try {
-            const result = await AuthService.login({ email, password });
+            const result = await authService.login({ email, password });
             if (result) {
                 // Handle successful login, e.g., redirect or update state
                 console.log("Login successful", result);
+                navigate('/home');
             }
         } catch (err) {
             setError(err.message || "Login failed");
@@ -27,7 +32,7 @@ export default function LoginForm() {
     return (
         <form className="default-form" onSubmit={ onSubmit }>
             <div className='form-group'>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">E-mail</label>
                 <input
                     type="email"
                     id="email"
@@ -37,7 +42,7 @@ export default function LoginForm() {
                 />
             </div>
             <div className='form-group'>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Senha</label>
                 <input
                     type="password"
                     id="password"

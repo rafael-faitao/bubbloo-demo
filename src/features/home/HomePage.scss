@@ -1,0 +1,167 @@
+.home-page {
+    width: 100vw;
+    height: 100vh;
+    background: url('../../../public/assets/img/bg-with-clouds.png') no-repeat center 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .upper-left-logo {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 8rem;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+
+    .home-wrapper {
+        display: flex;
+        height: 100%;
+        position: relative;
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #32ACFF;
+            justify-content: space-between;
+            height: 100%;
+            width: 15rem;
+            border-radius: 64px 0 0 64px;
+
+            .user-group {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+
+                .avatar {
+                    width: 10rem;
+                    margin-top: 6rem;
+                }
+
+                .username {
+                    font-size: 1.2rem;
+                    color: white;
+                    font-weight: bold;
+                }
+            }
+
+            .button-group {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+
+                .exit {
+                    color: white;
+                    font-weight: bold;
+                    background: #2F85BF;
+                    border-radius: 32px 0 0 32px;
+                    display: flex;
+                    user-select: none;
+                    cursor: pointer;
+                    padding: 0.5rem;
+                    width: 8rem;
+                    margin-bottom: 6rem;
+
+                    img {
+                        width: 1.2rem;
+                        margin-right: 1rem;
+                    }
+                }
+            }
+
+        }
+
+        .center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .text-group {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 10rem;
+
+                h2 {
+                    font-size: 10rem;
+                    color: #32ACFF;
+                    margin: 0px;
+
+                    line-height: 8rem;
+                }
+
+                h4 {
+                    margin: 0px;
+                    color: #F69ACE;
+                    font-size: 1.5rem;
+                }
+            }
+
+
+            .activity-group {
+                display: flex;
+                width: 20rem;
+                font-weight: bold;
+                color: var(--strong-blue);
+                font-size: 1.2rem;
+                margin-top: 2rem;
+
+                .left-actv,
+                .right-actv {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    &:first-child {
+                        margin-right: 1rem;
+                    }
+                }
+
+                .img-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: var(--strong-blue);
+                    font-size: 1.2rem;
+
+
+                    img {
+                        width: 8rem;
+                        height: 8rem;
+                        object-fit: contain;
+                        margin-bottom: 1rem;
+                        background: #EBF7FF;
+                        padding: 1rem;
+                        border-radius: 22px;
+                        cursor: pointer;
+                        transition: .2s all;
+
+                        &:hover {
+                            background: #cfecff;
+                        }
+                    }
+
+                }
+
+
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+    }
+}
