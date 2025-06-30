@@ -1,0 +1,26 @@
+.activity-bar {
+    background: #A0D9FF;
+    display: flex;
+    justify-content: space-between;
+    width: 40rem;
+    height: 2.5rem;
+    padding: 1rem;
+    border-radius: 16px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 0;
+
+    .avatar-group {
+        display:flex;
+        align-items: center;
+        color:white;
+        font-weight: bold;
+        img {
+            width:2rem;
+            margin-left:0.5rem;
+            border:1px solid var(--strong-blue);
+            border-radius:50%;
+        }
+    }
+}

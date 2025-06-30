@@ -4,10 +4,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url('../../../public/assets/img/bg-clouds.png') repeat center 100%;
+    background-size: cover;
+
 
     .main-app-wrapper {
         width: 40vw;
+        position: relative;
     }
+
+    .logo.upper-left {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        width: 12rem;
+    }
+
+    .main-wrapper {
+        padding-top:3rem;
+    }
+
+    .action-item {
+        cursor: pointer;
+    }
+
 
     .memory-game-grid {
         display: grid;
@@ -24,6 +44,13 @@
             border-radius: 16px;
             background-image: url('../../../public/assets/img/memory-game/card.svg');
             background-size: cover;
+
+            &.unflipped {
+                transition: .2s all;
+                &:hover {
+                    filter: brightness(1.05);
+                }
+            }
         }
     }
 }
