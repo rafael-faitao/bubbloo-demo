@@ -1,9 +1,12 @@
 import ActivityBar from "../../components/ActivityBar";
 import "./MemoryGame.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function MemoryGame() {
+  const [loaded, setLoaded] = useState(false);
+
+
   const [memoryGameCards, setMemoryGameCards] = useState(
     Array.from({ length: 8 }, (_, i) => [
       { id:i, flipped: false, matched: false },
@@ -19,6 +22,42 @@ export default function MemoryGame() {
 
   const rightAudio = new Audio('assets/audio/right.mp3');
   const wrongAudio = new Audio('assets/audio/wrong.mp3');
+
+    const imageUrls = [
+    "/assets/img/memory-game/0.png",
+    "/assets/img/memory-game/1.png",
+    "/assets/img/memory-game/2.png",
+    "/assets/img/memory-game/3.png",
+    "/assets/img/memory-game/4.png",
+    "/assets/img/memory-game/5.png",
+    "/assets/img/memory-game/6.png",
+    "/assets/img/memory-game/7.png",
+  ];
+
+  const preloadImages = (urls) => {
+    const imagePromises = urls.map((url) => {
+      return new Promise((resolve, reject) => {
+        console.dir('loaded');
+        const img = new Image();
+        img.src = url;
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    });
+
+    // Add a timeout promise to ensure loading doesn't hang indefinitely
+    const timeoutPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    });
+
+    return Promise.all([...imagePromises, timeoutPromise]);
+  };
+
+    useEffect(() => {
+    preloadImages(imageUrls).then(() => setLoaded(true));
+  }, []);
 
 
   const handleExit = () => {
@@ -113,13 +152,17 @@ export default function MemoryGame() {
         <div className="main-wrapper">
           <ActivityBar onClose={() => handleExit()} />
           <span className="activity-title">Jogo da Memória</span>
-
-          <div className="memory-game-grid">
+{
+          (loaded && <div className="memory-game-grid">
             {memoryGameCards.map((card, i) => {
                  
               return card.flipped ? (<div key={i} className={`game-card ${card.matched ? 'match' : ''}`} style={{backgroundImage:`url('/assets/img/memory-game/${card.id}.png')`}} onClick={() => handleCardClick(i)}></div>) : (<div key={i} className="game-card unflipped" onClick={() => handleCardClick(i)}></div>)
             })}
-          </div>
+          </div>)}
+
+          {(!loaded && <div className="loading-screen">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#75C6FF" stroke="#75C6FF" stroke-width="15" r="15" cx="40" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#75C6FF" stroke="#75C6FF" stroke-width="15" r="15" cx="100" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#75C6FF" stroke="#75C6FF" stroke-width="15" r="15" cx="160" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
+            </div>)}
         </div>
       </div>
     </div>
