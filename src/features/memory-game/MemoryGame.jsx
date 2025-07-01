@@ -39,7 +39,6 @@ export default function MemoryGame() {
   const preloadImages = (urls) => {
     const imagePromises = urls.map((url) => {
       return new Promise((resolve, reject) => {
-        console.dir('loaded');
         const img = new Image();
         img.src = url;
         img.onload = resolve;
@@ -92,7 +91,6 @@ export default function MemoryGame() {
             }));
             setLastFlipped(null);
 
-            console.dir('matches', matches);
             if (matches === 7) {
               setGameOver(true);
               winAudio.play();
