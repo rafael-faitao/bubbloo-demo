@@ -19,9 +19,11 @@ export default function MemoryGame() {
   const [matches, setMatches] = useState(0);
   const [lastFlipped, setLastFlipped] = useState(null);
   const [isFlipping, setIsFlipping] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
   const rightAudio = new Audio('assets/audio/right.mp3');
   const wrongAudio = new Audio('assets/audio/wrong.mp3');
+  const winAudio = new Audio('assets/audio/victory.mp3');
 
     const imageUrls = [
     "/assets/img/memory-game/0.png",
@@ -92,7 +94,9 @@ export default function MemoryGame() {
 
             console.dir('matches', matches);
             if (matches === 7) {
-              setTimeout(() => restartGame(), 3000);
+              setGameOver(true);
+              winAudio.play();
+              setTimeout(() => restartGame(), 6000);
             }
         }
         else {
@@ -137,6 +141,7 @@ export default function MemoryGame() {
   }
 
   const restartGame = () => {
+    setGameOver(false);
     setIsFlipping(false);
     setLastFlipped(null);
     setMemoryGameCards(Array.from({ length: 8 }, (_, i) => [
@@ -147,6 +152,14 @@ export default function MemoryGame() {
   }
   return (
     <div className="memory-game-wrapper">
+      <div className={`victory-burst ${gameOver ? 'animate' : ''}`}>
+        <div className="cong-wrapper">
+          <img className="congratulations-text" src="/assets/img/congratulations.png"></img>
+        </div>
+        <div className="radial-container">
+          <img className="radial" src="/assets/img/radial.png"></img>
+        </div>
+      </div>
         <img src="/assets/img/logo.png" alt="Bubbloo Logo" className="logo upper-left" />
       <div className="main-app-wrapper">
         <div className="main-wrapper">
