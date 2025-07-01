@@ -1,0 +1,46 @@
+svg.bubble-burst {
+    user-select: none;
+    overflow: visible;
+    position: fixed;
+    width:4rem;
+    height:4rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s all;
+    pointer-events: none;
+
+    &.anim {
+        transform:translateY(-10vh);
+        .c-center {
+            transform: translateY(-10rem);
+        }
+
+        .c-tr {
+            transform: translateY(-10rem) translateX(10rem);
+        }
+
+        .c-bl {
+            transform: translateY(5rem) translateX(-10rem);
+        }
+
+        .c-br {
+            transform: translateY(10rem) translateX(10rem);
+        }
+
+        .c-center-2 {
+            transform: translateY(10rem);
+        }
+
+        circle {
+            opacity: 0;
+        }
+    }
+
+    circle {
+        fill: var(--strong-blue);
+        position: relative;
+        transition: 1s all;
+        opacity: 1;
+    }
+}

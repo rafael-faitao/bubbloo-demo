@@ -9,31 +9,21 @@
 
   <!-- Top left -->
   <circle class="st0" cx="35.5" cy="34.3" r="4.7">
-    <animateTransform  attributeName="transform" type="translate" from="0 0" to="-20 -20" dur="0.4s" fill="freeze"/>
-    <animate attributeName="opacity" from="1" to="0" dur="0.4s" fill="freeze"/>
   </circle>
 
   <!-- Top right -->
   <circle class="st0" cx="52.8" cy="31.7" r="3.3">
-    <animateTransform attributeName="transform" type="translate" from="0 0" to="20 -20" dur="0.4s" fill="freeze"/>
-    <animate attributeName="opacity" from="1" to="0" dur="0.4s" fill="freeze"/>
   </circle>
 
   <!-- Bottom left -->
   <circle class="st0" cx="36.5" cy="51.9" r="1.5">
-    <animateTransform attributeName="transform" type="translate" from="0 0" to="-10 15" dur="0.4s" fill="freeze"/>
-    <animate attributeName="opacity" from="1" to="0" dur="0.4s" fill="freeze"/>
   </circle>
 
   <!-- Bottom right -->
   <circle class="st0" cx="53.9" cy="56.3" r="3.3">
-    <animateTransform attributeName="transform" type="translate" from="0 0" to="15 15" dur="0.4s" fill="freeze"/>
-    <animate attributeName="opacity" from="1" to="0" dur="0.4s" fill="freeze"/>
   </circle>
 
   <!-- Center -->
   <circle class="st0" cx="46.9" cy="44.8" r="7.1">
-    <animateTransform attributeName="transform" type="scale" from="1" to="1.8" dur="0.3s" fill="freeze"/>
-    <animate attributeName="opacity" from="1" to="0" dur="0.4s" fill="freeze"/>
   </circle>
 </svg>
