@@ -110,7 +110,7 @@
 
             .activity-group {
                 display: flex;
-                width: 20rem;
+                width: 32rem;
                 font-weight: bold;
                 color: var(--strong-blue);
                 font-size: 1.2rem;
@@ -123,8 +123,8 @@
                     flex-direction: column;
                     align-items: center;
 
-                    &:first-child {
-                        margin-right: 1rem;
+                    &:not(.first-child) {
+                        margin-left: 1rem;
                     }
                 }
 

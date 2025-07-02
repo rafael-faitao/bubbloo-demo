@@ -49,6 +49,12 @@ const navigate = useNavigate();
                     </div>
                     Memória
                 </div>
+                                <div className="right-actv" onClick={() => handleActivity('bubble-dash')}>
+                    <div className="img-wrapper ">
+                        <img src="/assets/img/bubble.svg"/>
+                    </div>
+                    Bubble Dash
+                </div>
             </div>
             </div>
           </div>
